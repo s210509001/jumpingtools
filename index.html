@@ -202,7 +202,7 @@
             <pre>// ==UserScript==
 // @name         题号自动跳转工具
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  根据题号自动跳转到对应平台的原题页面
 // @author       s210509001(wmz)
 // @match        *://*/*
@@ -235,7 +235,7 @@
         // 匹配Codeforces题号
         if (normalizedId.match(/^CF?[\s_]*\d+[A-Z]*$/i) || normalizedId.match(/^\d+[A-Z]*$/)) {
             let contestId = normalizedId.replace(/^CF?[\s_]*/i, '');
-            window.open(`https://codeforces.com/problemset/problem/${contestId.slice(0, -1)}/${contestId.slice(-1)}`, '_blank');
+            window.open(`https://codeforces.com/contest/${contestId.slice(0, -1)}/problem/${contestId.slice(-1)}`, '_blank');
         }
         // 匹配AtCoder题号
         else if (normalizedId.match(/^AT?[\s_]*[A-Z]+\d+_?[A-Z]/i) || normalizedId.match(/^[A-Z]+\d+_?[A-Z]/i)) {
@@ -280,4 +280,5 @@
         });
     </script>
 </body>
+
 </html>
